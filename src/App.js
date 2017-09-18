@@ -8,15 +8,33 @@ class App extends React.Component {
         super(props);
         this.state={
             currentTime: null,
-            msg: 'now'
+            msg: 'now',
+            tz: 'PST'
         }
     }
 
 
-    fetchCurrentTime() {}
-    getApiUrl(){}
-    handleFormSubmit(){}
-    handleChange(newState){}
+    fetchCurrentTime() {
+        fetch(this.getApiUrl())
+        .then(resp => resp.json())
+            .then(resp => {
+                const currentTime = resp.dateString;
+                this.setState({currentTime})
+            })
+    }
+    getApiUrl(){
+        const {tz,msg} = this.state;
+        const host = 'https://fullstacktime.herokuapp.com';
+        return `${host}/${tz}/${msg}.json`;
+    }
+    handleFormSubmit(){
+        this.fetchCurrentTime();
+    }
+
+    handleChange(newState){
+        this.setState(newState);
+    }
+
 
     render(){
         const {currentTime,tz} = this.state;
