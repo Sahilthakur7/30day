@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './App.css';
-import {Router, Route, hashHistory} from 'react-router'
+import {Router, Route, hashHistory, IndexRoute} from 'react-router';
+import {Index} from './containers/Index';
+import {Home} from './views/Home/Home';
+import {About} from './views/About/About';
 
-
-const Home = () => (<div><h1>WELCOME HOME</h1></div>)
 
 export class App extends React.Component {
 
@@ -13,7 +14,11 @@ export class App extends React.Component {
 
         return(
             <Router history={hashHistory} >
-                <Route path="/" component={Home}/>
+                <Route path="/" component={Index}>
+                  <IndexRoute component={Home}/>
+                    <Route path="Home" component={Home}/>
+                    <Route path="/about" component={About}/>
+                </Route>
             </Router>
         )
 
