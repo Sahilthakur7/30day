@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './App.css';
 import {Router, Route, hashHistory, IndexRoute} from 'react-router';
-import {Index} from './containers/Index';
-import {Home} from './views/Home/Home';
-import {About} from './views/About/About';
+import {Index} from './Index';
+import {Home} from '../views/Home/Home';
+import {About} from '../views/About/About';
 
 
 export class App extends React.Component {
@@ -16,7 +15,7 @@ export class App extends React.Component {
             <Router history={hashHistory} >
                 <Route path="/" component={Index}>
                   <IndexRoute component={Home}/>
-                    <Route path="Home" component={Home}/>
+                    <Route path="/home" component={Home}/>
                     <Route path="/about" component={About}/>
                 </Route>
             </Router>
