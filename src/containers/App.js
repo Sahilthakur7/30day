@@ -10,8 +10,12 @@ export class App extends React.Component {
 
     render(){
 
+        const createElement = (Component, props) => {
+            return <Component actions={this.props.actions} {...props}>
+        }
+
         return(
-            <Router history={hashHistory} >
+            <Router history={hashHistory} createElement={createElement} >
                 <Route path="/" component={Index}>
                   <IndexRoute component={Home}/>
                     <Route path="/home" component={Home}/>

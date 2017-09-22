@@ -1,9 +1,17 @@
-import {createStore} from 'redux';
+import {createStore, bindActionCreators} from 'redux';
+import * as currentTime from './modules/currentTime';
 
 export const configureStore = () => {
-    const store = createStore();
+    const store = createStore(currentTime.reducer);
 
-    return store;
+    const actions = {
+        currentTime: bindActionCreators(
+            currentTime.actions,
+            store.dispatch
+        )
+    }
+
+    return { store, actions };
 }
 
 export default configureStore;

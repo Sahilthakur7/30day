@@ -1,9 +1,12 @@
 import React from 'react';
+import {Provider} from 'react-redux';
 import App from './App';
 
-export const Root = (props) => {
+export const Root = ({store, actions}) => {
     return(
-        <App/>
+        <Provider store={store}>
+            <App actions={actions}/>
+        </Provider>
     );
 }
 
