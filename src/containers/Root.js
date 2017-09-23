@@ -1,13 +1,14 @@
 import React from 'react';
-import {Provider} from 'react-redux';
+import { Provider } from 'react-redux';
 import App from './App';
-
+// Using ES6 destructuring of the `props`
+// variable so we just get the values of `store`
+// and `actions`:
 export const Root = ({store, actions}) => {
-    return(
+    return (
         <Provider store={store}>
-            <App actions={actions}/>
+        <App actions={actions} />
         </Provider>
     );
 }
-
 export default Root;
