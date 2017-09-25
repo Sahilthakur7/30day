@@ -1,5 +1,6 @@
-import * as types form './types';
+import * as types from './types';
 
 export const fetchNewTime = () => ({
     type: types.FETCH_NEW_TIME,
+    payload: new Date().toString()
 })
