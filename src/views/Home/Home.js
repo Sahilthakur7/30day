@@ -1,4 +1,4 @@
-
+import { fetchNewTime} from '../../redux/actionCreators';
 import React from 'react';
 import { connect } from 'react-redux';
 
@@ -7,6 +7,7 @@ const Home = (props) => {
     <div className="home">
       <h1>Welcome home!</h1>
       <p>Current time: {props.currentTime}</p>
+      <button onClick={props.updateTime}>Update TIme</button>
     </div>
   );
 }
@@ -16,6 +17,13 @@ const mapStateToProps = state => {
     currentTime: state.currentTime
   }
 }
+
+const mapDispatchToProps = dispatch => ({
+    updateTime: () => dispatch(fetchNewTime())
+})
+
 export default connect(
-  mapStateToProps
-)(Home);
+  mapStateToProps,
+    mapDispatchToProps,
+)
+(Home);
