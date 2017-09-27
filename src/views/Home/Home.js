@@ -1,5 +1,5 @@
-import { fetchNewTime} from '../../redux/actionCreators';
 import React from 'react';
+import { fetchNewTime} from '../../redux/actionCreators';
 import { connect } from 'react-redux';
 
 const Home = (props) => {
@@ -14,7 +14,7 @@ const Home = (props) => {
 
 const mapStateToProps = state => {
   return {
-    currentTime: state.currentTime
+    currentTime: state.time.currentTime
   }
 }
 

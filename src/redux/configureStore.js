@@ -12,7 +12,7 @@ export const configureStore = () => {
         {
             time: initialState,
             user: userInitialState
-        },
+        }
     );
 
   return store;
