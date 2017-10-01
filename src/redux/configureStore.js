@@ -1,22 +1,24 @@
+import { createStore, applyMiddleware } from 'redux';
 
-import {createStore, applyMiddleware} from 'redux';
-import {rootReducer, initialState} from './reducers';
-import {reducer, initialState as userInitialState} from './currentUser';
+import { rootReducer, initialState } from './reducers'
 
 import loggingMiddleware from './loggingMiddleware';
 import apiMiddleware from './apiMiddleware';
 
 export const configureStore = () => {
     const store = createStore(
-        rootReducer,
-        initialState,
+            rootReducer,
+            initialState,
         applyMiddleware(
-            apiMiddleware,
-            loggingMiddleware,
+                  apiMiddleware,
+                  loggingMiddleware,
+                
         )
+          
     );
 
-  return store;
+      return store;
+
 }
 
 export default configureStore;
